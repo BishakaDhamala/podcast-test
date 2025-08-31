@@ -25,7 +25,7 @@ xml_tree.SubElement(channel_element, 'itunes:category', {'text': yaml_data['cate
 for item in yaml_data ['item']:
     item_element = xml_tree.SubElement(channel_element, 'item')
     xml_tree.SubElement(item_element, 'title').text = item['title'] 
-    xml_tree.SubElement(item_element, 'itunes:author').text = item['author']
+    xml_tree.SubElement(item_element, 'itunes:author').text = item.get('author', '')    
     xml_tree.SubElement(item_element, 'itunes:description').text = item['description']
     xml_tree.SubElement(item_element, 'pubDate').text = item['published']
 
